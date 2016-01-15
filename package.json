@@ -1,0 +1,33 @@
+{
+  "name": "resolve-schema-refs",
+  "version": "1.0.0",
+  "description": "Very naive $ref resolver for JaySchema schemas",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauriceButler/resolve-schema-refs.git"
+  },
+  "author": "Maurice Butler <maurice.butler@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MauriceButler/resolve-schema-refs/issues"
+  },
+  "homepage": "https://github.com/MauriceButler/resolve-schema-refs#readme",
+  "dependencies": {
+    "clone": "^1.0.2"
+  },
+  "keywords": [
+    "reference",
+    "schema",
+    "jayschema",
+    "$ref",
+    "resolve",
+    "resolver"
+  ],
+  "devDependencies": {
+    "tape": "^4.4.0"
+  }
+}
