@@ -1,6 +1,10 @@
 var clone = require('clone');
 
 function resolveArray(schema, definitions){
+    if(!schema.items){
+        return;
+    }
+
     for(var i = 0; i < schema.items.length; i++) {
         var reference = schema.items[i].$ref;
 
@@ -14,10 +18,12 @@ function resolveArray(schema, definitions){
 }
 
 function resolveObject(schema, definitions){
-    var reference = schema.properties.$ref;
+    if(!schema.properties){
+        return;
+    }
 
-    if(reference){
-        var referenceKey = reference.split(':')[1];
+    if(schema.properties.$ref){
+        var referenceKey = schema.properties.$ref.split(':')[1];
 
         schema.properties[referenceKey] = definitions[referenceKey];
         delete schema.properties.$ref;
