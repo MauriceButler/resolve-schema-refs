@@ -42,16 +42,16 @@ function resolveObject(schema, definitions){
 
 function resolve(schema, definitions){
     if(schema){
+        if(schema.$ref){
+            schema = definitions[schema.$ref.split(':')[1]];
+        }
+
         if(schema.type === 'array'){
             resolveArray(schema, definitions);
         }
 
         if(schema.type === 'object'){
             resolveObject(schema, definitions);
-        }
-
-        if(schema.$ref){
-            schema = definitions[schema.$ref.split(':')[1]];
         }
     }
 

@@ -5,7 +5,14 @@ var test = require('tape'),
             things: 'stuff'
         },
         beep: {
-            boop: 'majigger'
+            type: 'object',
+            properties: {
+                boop: 'majigger',
+                $ref: 'test:wat'
+            }
+        },
+        wat: {
+            waca:'waca'
         },
         bar:{
             type: 'object',
@@ -91,10 +98,7 @@ test('works with multiple nestings', function(t){
 
     var result = resolve(
             {
-                type: 'object',
-                properties: {
-                    $ref: 'test:bar'
-                }
+                $ref: 'test:bar'
             },
             testDefinitions
         );
@@ -104,21 +108,21 @@ test('works with multiple nestings', function(t){
         {
             type: 'object',
             properties: {
-                bar: {
+                data: {
                     type: 'object',
-                    properties: {
-                        data: {
+                    anyOf: [
+                        testDefinitions.foo,
+                        {
                             type: 'object',
-                            anyOf: [
-                                testDefinitions.foo,
-                                testDefinitions.beep
-                            ]
+                            properties: {
+                                boop: 'majigger',
+                                wat: testDefinitions.wat
+                            }
                         }
-                    }
+                    ]
                 }
             }
         },
         'works with multiple nestings'
     );
 });
-
