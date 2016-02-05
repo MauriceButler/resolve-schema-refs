@@ -18,7 +18,7 @@ var test = require('tape'),
             type: 'object',
             properties: {
                 data: {
-                    type: 'object',
+                    // type: 'object',
                     anyOf: [
                         { $ref: 'test:foo' },
                         { $ref: 'test:beep' }
@@ -109,7 +109,6 @@ test('works with multiple nestings', function(t){
             type: 'object',
             properties: {
                 data: {
-                    type: 'object',
                     anyOf: [
                         testDefinitions.foo,
                         {

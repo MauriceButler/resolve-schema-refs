@@ -34,16 +34,16 @@ function resolveObject(schema, definitions){
             resolve(schema.properties[key], definitions);
         }
     }
-
-    if(schema.anyOf){
-        processArray(schema.anyOf, definitions);
-    }
 }
 
 function resolve(schema, definitions){
     if(schema){
         if(schema.$ref){
             schema = definitions[schema.$ref.split(':')[1]];
+        }
+
+        if(schema.anyOf){
+            processArray(schema.anyOf, definitions);
         }
 
         if(schema.type === 'array'){
