@@ -5,7 +5,11 @@ function resolveArray(schema, definitions){
         return;
     }
 
-    processArray(schema.items, definitions);
+    if(Array.isArray(schema.items)){
+        processArray(schema.items, definitions);
+    } else {
+        schema.items = resolve(schema.items, definitions);
+    }
 }
 
 function processArray(array, definitions){

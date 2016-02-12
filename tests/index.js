@@ -25,6 +25,10 @@ var test = require('tape'),
                     ]
                 }
             }
+        },
+        thingy: {
+            type: 'array',
+            items: {$ref: 'test:wat'}
         }
     };
 
@@ -123,5 +127,25 @@ test('works with multiple nestings', function(t){
             }
         },
         'works with multiple nestings'
+    );
+});
+
+test('works with arrays with reference as items', function(t){
+    t.plan(1);
+
+    var result = resolve(
+            {
+                $ref: 'test:thingy'
+            },
+            testDefinitions
+        );
+
+    t.deepEqual(
+        result,
+        {
+            type: 'array',
+            items: testDefinitions.wat
+        },
+        'works with arrays with reference as items'
     );
 });
