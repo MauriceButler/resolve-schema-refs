@@ -29,6 +29,9 @@ var test = require('tape'),
         thingy: {
             type: 'array',
             items: {$ref: 'test:wat'}
+        },
+        zoop: {
+            type: 'string',
         }
     };
 
@@ -53,7 +56,10 @@ test('works with objects', function(t){
                 type: 'object',
                 properties: {
                     bar: 'majigger',
-                    $ref: 'test:foo'
+                    $ref: 'test:foo',
+                    zoop: {
+                        $ref: 'test:zoop'
+                    }
                 }
             },
             testDefinitions
@@ -65,7 +71,8 @@ test('works with objects', function(t){
             type: 'object',
             properties: {
                 bar: 'majigger',
-                foo: testDefinitions.foo
+                foo: testDefinitions.foo,
+                zoop: testDefinitions.zoop
             }
         },
         'works with objects'

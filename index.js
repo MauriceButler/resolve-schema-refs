@@ -35,7 +35,7 @@ function resolveObject(schema, definitions){
         }
 
         for(var key in schema.properties){
-            resolve(schema.properties[key], definitions);
+            schema.properties[key] = resolve(schema.properties[key], definitions);
         }
     }
 }
