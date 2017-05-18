@@ -1,6 +1,6 @@
 {
   "name": "resolve-schema-refs",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Very naive $ref resolver for JaySchema schemas",
   "main": "index.js",
   "scripts": {
