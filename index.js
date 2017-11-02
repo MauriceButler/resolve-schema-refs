@@ -1,4 +1,4 @@
-var clone = require('clone');
+var clone = require('clone-deep');
 
 function resolveArray(schema, definitions){
     if(!schema.items){

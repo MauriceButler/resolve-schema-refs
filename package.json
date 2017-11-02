@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/MauriceButler/resolve-schema-refs#readme",
   "dependencies": {
-    "clone": "^1.0.2"
+    "clone-deep": "^1.0.0"
   },
   "keywords": [
     "reference",
@@ -28,6 +28,6 @@
     "resolver"
   ],
   "devDependencies": {
-    "tape": "^4.4.0"
+    "tape": "^4.8.0"
   }
 }
